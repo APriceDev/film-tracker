@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
   res.send('film tracker');
 });
 
+app.get('/edit', (req, res) => {
+  res.send('edit film');
+});
+
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
