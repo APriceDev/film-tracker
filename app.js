@@ -17,10 +17,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+// index route
 app.get('/', (req, res) => {
-  res.send('film tracker');
+  const title = 'Film Tracker';
+  res.render('index', { title });
 });
 
+// edit route
 app.get('/edit', (req, res) => {
   res.send('edit film');
 });
