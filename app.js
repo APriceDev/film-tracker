@@ -23,9 +23,13 @@ app.get('/', (req, res) => {
   res.render('index', { title });
 });
 
-// edit route
-app.get('/edit', (req, res) => {
+// add film route
+app.get('/films/add', (req, res) => {
   res.render('films/add');
+});
+
+app.post('/films', (req, res) => {
+  res.send(req.body);
 });
 
 app.listen(port, () => {
