@@ -6,6 +6,24 @@ const mongoose = require('mongoose');
 const app = express();
 const port = 8000;
 
+// map global promise
+mongoose.Promise = global.Promise;
+
+// connect to mongoose
+mongoose
+  .connect(
+    'mongodb://localhost/theatreEsoterika',
+    { useNewUrlParser: true }
+  )
+  .then(() => {
+    console.log('MongoDB connected');
+  })
+  .catch(err => console.log(err));
+
+// Load Film model
+require('./models/Film');
+const Film = mongoose.model('films');
+
 // handlebars middleware
 // register handlebars as default templating engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -34,7 +52,7 @@ app.post('/films', (req, res) => {
     title: req.body.title,
     year: req.body.year,
     link: req.body.link,
-    refactor: req.body.refactor,
+    refactor: req.body.refactor
   });
 });
 

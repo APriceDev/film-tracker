@@ -25,4 +25,4 @@ const FilmSchema = new Schema({
   }
 });
 
-mongoose.model('ideas', FilmSchema);
+mongoose.model('films', FilmSchema);
