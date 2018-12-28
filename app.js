@@ -29,7 +29,13 @@ app.get('/films/add', (req, res) => {
 });
 
 app.post('/films', (req, res) => {
-  res.send(req.body);
+  res.send({
+    director: req.body.director,
+    title: req.body.title,
+    year: req.body.year,
+    link: req.body.link,
+    refactor: req.body.refactor,
+  });
 });
 
 app.listen(port, () => {

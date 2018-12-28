@@ -21,7 +21,7 @@ const FilmSchema = new Schema({
   },
   refactor: {
     type: Boolean,
-    required: true
+    required: false
   }
 });
 
