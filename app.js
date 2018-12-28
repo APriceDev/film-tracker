@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 // edit route
 app.get('/edit', (req, res) => {
-  res.send('edit film');
+  res.render('films/add');
 });
 
 app.listen(port, () => {
