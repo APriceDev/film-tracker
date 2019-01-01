@@ -47,13 +47,23 @@ app.get('/films/add', (req, res) => {
 });
 
 app.post('/films', (req, res) => {
-  res.send({
+  const newFilm = {
     director: req.body.director,
     title: req.body.title,
     year: req.body.year,
     link: req.body.link,
     refactor: req.body.refactor
+  };
+  new Film(newFilm).save().then(film => {
+    res.redirect('/films');
   });
+  // res.send({
+  //   director: req.body.director,
+  //   title: req.body.title,
+  //   year: req.body.year,
+  //   link: req.body.link,
+  //   refactor: req.body.refactor
+  // });
 });
 
 app.listen(port, () => {
