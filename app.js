@@ -41,6 +41,16 @@ app.get('/', (req, res) => {
   res.render('index', { title });
 });
 
+
+// film index route
+app.get('/films', (req, res) => {
+  Film.find({})
+    .sort({ director: 1, year: -1 })
+    .then(films => {
+      res.render('films/index', { films });
+    });
+});
+
 // add film route
 app.get('/films/add', (req, res) => {
   res.render('films/add');
