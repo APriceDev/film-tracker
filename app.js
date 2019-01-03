@@ -63,7 +63,7 @@ app.get('/films/add', (req, res) => {
   res.render('films/add');
 });
 
-// add film form 
+// add film form
 app.post('/films', (req, res) => {
   const newFilm = {
     director: req.body.director,
@@ -72,7 +72,7 @@ app.post('/films', (req, res) => {
     link: req.body.link,
     refactor: req.body.refactor
   };
-  new Film(newFilm).save().then(film => {
+  new Film(newFilm).save().then(_ => {
     res.redirect('/films');
   });
   // res.send({
@@ -87,7 +87,6 @@ app.post('/films', (req, res) => {
 // edit film route
 app.get('/films/edit/:id', (req, res) => {
   Film.findOne({ _id: req.params.id }).then(film => {
-    console.log(film.refactor);
     res.render('films/edit', { film });
   });
 });
@@ -95,14 +94,14 @@ app.get('/films/edit/:id', (req, res) => {
 // edit film form
 app.put('/films/:id', (req, res) => {
   Film.findOne({ _id: req.params.id }).then(film => {
-    console.log(req.body.refactor);
     // update values
     film.director = req.body.director;
     film.title = req.body.title;
     film.year = req.body.year;
     film.link = req.body.link;
-    film.refactor = req.body.refactor;
-    film.save().then(film => {
+    // q&d ternary to convert str to boolean
+    film.refactor = req.body.refactor === 'on' ? true : false;
+    film.save().then(_ => {
       res.redirect('/films');
     });
   });

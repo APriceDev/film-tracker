@@ -19,7 +19,7 @@
     </div>
     <div>
       <label for="refactor">refactor</label>
-      <input type="checkbox" name="refactor" value="{{film.refactor}}">
+      <input type="checkbox" name="refactor" {{#if film.refactor}}checked{{/if}}>
     </div>
     <input type="hidden" name="_method" value="PUT">
     <button type="submit">Submit</button>
