@@ -1,5 +1,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
@@ -24,6 +25,8 @@ mongoose
 require('./models/Film');
 const Film = mongoose.model('films');
 
+// ======================= MIDDLEWARE
+
 // handlebars middleware
 // register handlebars as default templating engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -35,12 +38,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+// method-override middleware
+app.use(methodOverride('_method'));
+
+// ======================= ROUTING
+
 // index route
 app.get('/', (req, res) => {
   const title = 'Film Tracker';
   res.render('index', { title });
 });
-
 
 // film index route
 app.get('/films', (req, res) => {
@@ -56,6 +63,7 @@ app.get('/films/add', (req, res) => {
   res.render('films/add');
 });
 
+// add film form 
 app.post('/films', (req, res) => {
   const newFilm = {
     director: req.body.director,
@@ -74,6 +82,30 @@ app.post('/films', (req, res) => {
   //   link: req.body.link,
   //   refactor: req.body.refactor
   // });
+});
+
+// edit film route
+app.get('/films/edit/:id', (req, res) => {
+  Film.findOne({ _id: req.params.id }).then(film => {
+    console.log(film.refactor);
+    res.render('films/edit', { film });
+  });
+});
+
+// edit film form
+app.put('/films/:id', (req, res) => {
+  Film.findOne({ _id: req.params.id }).then(film => {
+    console.log(req.body.refactor);
+    // update values
+    film.director = req.body.director;
+    film.title = req.body.title;
+    film.year = req.body.year;
+    film.link = req.body.link;
+    film.refactor = req.body.refactor;
+    film.save().then(film => {
+      res.redirect('/films');
+    });
+  });
 });
 
 app.listen(port, () => {

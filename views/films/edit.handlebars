@@ -1,0 +1,27 @@
+<div>
+  <h3>Edit Film</h3>
+  <form action="/films/{{film.id}}?_method=PUT" method="POST">
+    <div>
+      <label for="director">Director</label>
+      <input type="text" name="director" value="{{film.director}}" required>
+    </div>
+    <div>
+      <label for="title">Title</label>
+      <input type="text" name="title" value="{{film.title}}" required>
+    </div>
+    <div>
+      <label for="year">Year</label>
+      <input type="text" name="year" value="{{film.year}}" required>
+    </div>
+    <div>
+      <label for="link">Link</label>
+      <input type="text" name="link" value="{{film.link}}" required>
+    </div>
+    <div>
+      <label for="refactor">refactor</label>
+      <input type="checkbox" name="refactor" value="{{film.refactor}}">
+    </div>
+    <input type="hidden" name="_method" value="PUT">
+    <button type="submit">Submit</button>
+  </form>
+</div>
