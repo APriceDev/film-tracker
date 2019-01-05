@@ -107,6 +107,14 @@ app.put('/films/:id', (req, res) => {
   });
 });
 
+// delete film
+app.delete('/films/:id', (req, res) => {
+  Film.deleteOne({_id: req.params.id})
+    .then(_ => {
+      res.redirect('/films');
+    })
+})
+
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
