@@ -27,18 +27,18 @@ const Film = mongoose.model('films');
 
 // ======================= MIDDLEWARE
 
-// handlebars middleware
+// handlebars
 // register handlebars as default templating engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-// body-parser middleware
+// body-parser
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-// method-override middleware
+// method-override
 app.use(methodOverride('_method'));
 
 // ======================= ROUTING
@@ -75,13 +75,6 @@ app.post('/films', (req, res) => {
   new Film(newFilm).save().then(_ => {
     res.redirect('/films');
   });
-  // res.send({
-  //   director: req.body.director,
-  //   title: req.body.title,
-  //   year: req.body.year,
-  //   link: req.body.link,
-  //   refactor: req.body.refactor
-  // });
 });
 
 // edit film route
