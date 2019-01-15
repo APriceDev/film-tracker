@@ -45,7 +45,7 @@ app.use(methodOverride('_method'));
 
 // index route
 app.get('/', (req, res) => {
-  const title = 'Film Tracker';
+  const title = 'Theatre Esoterika';
   res.render('index', { title });
 });
 
