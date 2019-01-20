@@ -7,7 +7,7 @@ require('../models/Film');
 const Film = mongoose.model('films');
 
 // film index route
-router.get('/films', (req, res) => {
+router.get('/', (req, res) => {
   Film.find({})
     .sort({ director: 1, year: -1 })
     .then(films => {
@@ -16,12 +16,12 @@ router.get('/films', (req, res) => {
 });
 
 // add film route
-router.get('/films/add', (req, res) => {
+router.get('/add', (req, res) => {
   res.render('films/add');
 });
 
 // add film form
-router.post('/films', (req, res) => {
+router.post('/', (req, res) => {
   const newFilm = {
     director: req.body.director,
     title: req.body.title,
@@ -35,14 +35,14 @@ router.post('/films', (req, res) => {
 });
 
 // edit film route
-router.get('/films/edit/:id', (req, res) => {
+router.get('/edit/:id', (req, res) => {
   Film.findOne({ _id: req.params.id }).then(film => {
     res.render('films/edit', { film });
   });
 });
 
 // edit film form
-router.put('/films/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   Film.findOne({ _id: req.params.id }).then(film => {
     // update values
     film.director = req.body.director;
@@ -58,7 +58,7 @@ router.put('/films/:id', (req, res) => {
 });
 
 // delete film
-router.delete('/films/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   Film.deleteOne({ _id: req.params.id }).then(_ => {
     res.redirect('/films');
   });
