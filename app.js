@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
@@ -39,6 +40,9 @@ app.use(bodyParser.json());
 
 // method-override
 app.use(methodOverride('_method'));
+
+// static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ======================= ROUTING
 
