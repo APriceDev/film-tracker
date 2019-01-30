@@ -1,11 +1,25 @@
-body {
-  background: linear-gradient(to right, #8e2de2, #4a00e0);
-  color: whitesmoke;
+/* @import url('https://fonts.googleapis.com/css?family=Lato|Lato:light'); */
+
+html body {
+  /* background: linear-gradient(to right, #8e2de2, #4a00e0); */
+  background: linear-gradient(45deg, #2940A4, #3D87E4, #3EC9E9);
   font-family: sans-serif;
   padding: 0;
   margin: 0;
+  min-height: 100vh;
+  color: aliceblue;
+  font-family: 'Lato', sans-serif;
 }
 
 nav {
   background: rgba(0,0,0, 0.25);
+}
+
+h1 {
+  letter-spacing: 0.6em;
+}
+
+a {
+  color: aliceblue;
+  text-decoration: none;
 }
