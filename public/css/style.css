@@ -29,6 +29,7 @@ h1 {
 a {
   color: aliceblue;
   text-decoration: none;
+  transition: color 0.5s ease;
 }
 
 a:hover {
