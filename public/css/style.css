@@ -7,6 +7,7 @@ html body {
   min-height: 100vh;
   color: aliceblue;
   font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
 }
 
 nav {
@@ -46,8 +47,9 @@ a:hover {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   min-width: 25%;
   padding: 1em;
   margin-bottom: 4em;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
 }
