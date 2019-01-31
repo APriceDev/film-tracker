@@ -51,5 +51,5 @@ a:hover {
   min-width: 25%;
   padding: 1em;
   margin-bottom: 4em;
-  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 10px -3px rgba(0, 0, 0, 0.4);
 }
