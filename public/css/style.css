@@ -1,6 +1,6 @@
 html body {
   /* background: linear-gradient(to right, #8e2de2, #4a00e0); */
-  background: linear-gradient(45deg, #2940A4, #3D87E4, #3EC9E9);
+  background: linear-gradient(45deg, #2940a4, #3d87e4, #3ec9e9);
   font-family: sans-serif;
   padding: 0;
   margin: 0;
@@ -10,9 +10,10 @@ html body {
 }
 
 nav {
-  background: rgba(0,0,0, 0.25);
+  background: rgba(0, 0, 0, 0.25);
   letter-spacing: 0.25em;
   padding: 1.2em;
+  margin-bottom: 1em;
 }
 
 nav > div {
@@ -35,4 +36,18 @@ a {
 
 a:hover {
   color: orangered;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  min-width: 25%;
+  padding: 1em;
+  margin-bottom: 4em;
 }
