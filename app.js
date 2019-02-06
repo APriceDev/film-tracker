@@ -6,10 +6,15 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const app = express();
-const port = 8000;
+
+// set port for heroku or local
+const port = process.env.PORT || 8000;
 
 // load routes
 const films = require('./routes/films');
+
+// db config
+// const db = require('./config/database');
 
 // map global promise
 mongoose.Promise = global.Promise;
