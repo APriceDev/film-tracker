@@ -14,7 +14,7 @@ const port = process.env.PORT || 8000;
 const films = require('./routes/films');
 
 // db config
-// const db = require('./config/database');
+const db = require('./config/database');
 
 // map global promise
 mongoose.Promise = global.Promise;
@@ -22,7 +22,7 @@ mongoose.Promise = global.Promise;
 // connect to mongoose
 mongoose
   .connect(
-    'mongodb://localhost/theatreEsoterika',
+    db.mongoURI,
     { useNewUrlParser: true }
   )
   .then(() => {
